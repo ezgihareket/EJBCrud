@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>EJB Example</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p>Name: <h:inputText value="#{studentController.student.name}" ></h:inputText></p>
+            <p>Age: <h:inputText value="#{studentController.student.age}" ></h:inputText></p>
+            <h:commandButton action="#{studentController.insertStudent()}" value="Insert"></h:commandButton>
+        </h:form>
+        <p> <h2>Students:</h2> 
+            <ui:repeat value="#{studentController.studentList}" var="student">
+            #{student.name}
+            #{student.age}
+            <p><h:form>
+                <h:commandButton action="#{studentController.deleteStudent(student)}" value="Remove"></h:commandButton>
+            </h:form></p>
+           
+        </ui:repeat></p>
+        
+    </h:body>
+</html>
+
